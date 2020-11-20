@@ -1,0 +1,54 @@
+﻿<Page x:Class="covid_aulas.paginas.PagAlumnos"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:covid_aulas.paginas"
+      mc:Ignorable="d" 
+      d:DesignHeight="480" d:DesignWidth="800"
+      Title="PagAlumnos">
+
+    <Grid Background="#FF878D9F">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <WrapPanel Margin="10 5" Orientation="Horizontal">
+                <Button x:Name="btnAlumnoLimpiar" MaxHeight="50" VerticalAlignment="Top" Content="Limpiar Formulario" Click="Click_Limpiar_alumno" Padding="10" Background="#FFF1732C" Foreground="White" BorderBrush="White" FontSize="14" FontFamily="Arial Black" ></Button>
+                <Button x:Name="btnAlumnoBaja" MaxHeight="50" Content="Baja" Click="Click_baja_alumno" VerticalAlignment="Top" Padding="10" FontFamily="Arial Black" FontSize="14" Background="#FFF91C1C" BorderBrush="White" Foreground="White" ></Button>
+                <Button x:Name="btnAlumnoMod" MaxHeight="50" Content="Modificar" Click="Click_modificar_alumno" VerticalAlignment="Top" Padding="10" Foreground="White" FontSize="14" FontFamily="Arial Black" BorderBrush="White" Background="#FF0B17F3" ></Button>
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <StackPanel Margin="10 5" Orientation="Vertical">
+                <TextBlock FontSize="18" FontWeight="Bold">Datos del Alumno</TextBlock>
+                <TextBlock Margin="0 5" Foreground="White">Nombre</TextBlock>
+                <TextBox x:Name="txtNombre"></TextBox>
+                <TextBlock Margin="0 5" Foreground="White">Apellidos</TextBlock>
+                <TextBox x:Name="txtApellidos" ></TextBox>
+                <TextBlock Margin="0 5" Foreground="#FFF7F7F7">Fecha de nacimiento</TextBlock>
+                <DatePicker SelectedDate="{Binding PropertyName, StringFormat=yyyy-MM-dd}" Margin="0 5" Name="dpNacimiento"></DatePicker>
+                <TextBlock Margin="0 5" Foreground="White">Teléfono:</TextBlock>
+                <TextBox x:Name="txtTelefono" ></TextBox>
+                <TextBlock Margin="0 5" Foreground="White">Sexo:</TextBlock>
+                <ComboBox x:Name="cbSexo">
+                    <ComboBoxItem Tag="hombre">Hombre</ComboBoxItem>
+                    <ComboBoxItem Tag="mujer">Mujer</ComboBoxItem>
+                    <ComboBoxItem Tag="indeterminado">Indeterminado</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Margin="0 5" Foreground="White">Curso:</TextBlock>
+                <TextBox x:Name="txtCursoAlumno" ></TextBox>
+                <Button Margin="20 10" x:Name="btnPostAlumno" Content="Nuevo Alumno" Click="Click_PostAlumno" Background="#FF0CD30F" FontFamily="Arial Black" FontSize="14" BorderBrush="White" Foreground="White" Padding="5,5,5,5"></Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <DataGrid x:Name="dtAlumnos" CanUserAddRows="False" SelectionChanged="Click_dt_alumno"></DataGrid>
+        </Grid>
+
+    </Grid>
+</Page>
